@@ -35,19 +35,20 @@ module.exports = {
           }, 
           'sass-loader'
         ]
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
       }
     ]
   },
   plugins: [ 
-    new CleanWebpackPlugin('dist', {} ),
+    new CleanWebpackPlugin('dist/*.*', [{}]),
     new MiniCssExtractPlugin({
       filename: 'style-[contenthash].css',
     }),
     new HtmlWebpackPlugin({
-      inject: false,
-      hash: true,
-      template: './src/index.html',
-      filename: 'index.html'
+      template: 'src/index.html'
     }),
     new WebpackMd5Hash()
   ],
