@@ -48,6 +48,90 @@
 			width: 100%;
 			flex: 0 0 100%;
 		}
+
+		&--disabled {
+			.goods__card {
+				&:before {
+					border-bottom-color: $color_b3b3b3;
+					background-color: $color_f8f8f8;
+					cursor: default;
+				}				
+			}
+
+			.goods__header,
+			.goods__body {
+				border-color: $color_b3b3b3;
+				position: relative;
+				cursor: default;
+
+				&:after {
+					@include before(0, 0);
+					width: 100%;
+					height: 100%;
+					background-color: rgba($color_f2f2f2, .5);
+				}
+			}
+
+			.goods__weight {
+				background-color: $color_b3b3b3;
+			}
+
+			.goods__subtext {
+				display: none;
+
+				&--selected {
+					display: none;
+				}
+
+				&--disabled {
+					display: block;
+					color: $color_ffff66;
+				}
+			}
+		}
+
+		&--selected {
+			&:not(.no-hover) {
+				.goods__card {
+					&:hover {
+						.goods__header-text {
+							display: none;
+						}
+
+						.goods__header-text--hover {
+							display: block;
+						}
+					}			
+				}
+			}
+
+			.goods__card {
+				&:before {
+					border-bottom-color: $color_d91667;
+				}				
+			}
+
+			.goods__header,
+			.goods__body {
+				border-color: $color_d91667;
+			}
+
+			.goods__weight {
+				background-color: $color_d91667;
+			}
+
+			.goods__subtext {
+				display: none;
+
+				&--selected {
+					display: block;
+				}
+
+				&--disabled {
+					display: none;
+				}
+			}
+		}
 	}
 
 	&__card {
@@ -73,6 +157,8 @@
 			transform: rotate(135deg);
 			background-color: $color_fff;
 			z-index: 1;
+			transition: $transition;
+			cursor: pointer;
 		}
 	}
 
@@ -91,6 +177,13 @@
 		background-color: $color_fff;
 		border-top-right-radius: 8px;
 		box-sizing: content-box;
+		transition: $transition;
+		cursor: pointer;
+
+		&-text--hover {
+			display: none;
+			color: $color_d91667;
+		}
 	}
 
 	&__body {
@@ -106,6 +199,8 @@
 		border-bottom-left-radius: 8px;
 		border-bottom-right-radius: 8px;
 		@include backgroundImage('../images/cat.png', left bottom, auto);
+		transition: $transition;
+		cursor: pointer;
 	}
 
 	&__title {
@@ -155,6 +250,11 @@
 			width: 320px;
 			flex: 0 0 320px;
 			@include marginAuto;
+		}
+
+		&--disabled,
+		&--selected {
+			display: none;
 		}
 	}
 
