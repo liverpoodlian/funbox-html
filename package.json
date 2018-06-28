@@ -27,10 +27,17 @@
     "webpack-md5-hash": "0.0.6"
   },
   "dependencies": {
+    "cssnano": "^3.10.0",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "image-webpack-loader": "^4.3.1",
     "lodash-webpack-plugin": "^0.11.5",
+    "optimize-css-assets-webpack-plugin": "^4.0.3",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack-dev-server": "^3.1.4"
-  }
+  },
+  "browserslist": [
+    "last 2 major versions",
+    "> 1%"
+  ]
 }

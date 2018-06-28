@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 module.exports = {
   entry: { main: './src/index.js' },
   output: {
@@ -66,6 +67,7 @@ module.exports = {
       }
     ]
   },
+
   plugins: [ 
     new CleanWebpackPlugin('dist/*.*', [{}]),
     new MiniCssExtractPlugin({
@@ -76,6 +78,7 @@ module.exports = {
     }),
     new WebpackMd5Hash()
   ],
+  
   devServer: {
     contentBase: __dirname + '/dist',
     compress: true,
