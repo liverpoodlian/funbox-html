@@ -72,6 +72,12 @@
 				}
 			}
 
+			.goods__body {
+				&:before {
+					background-color: $color_b3b3b3;
+				}
+			}
+
 			.goods__weight {
 				background-color: $color_b3b3b3;
 			}
@@ -114,6 +120,12 @@
 			.goods__header,
 			.goods__body {
 				border-color: $color_d91667;
+			}
+
+			.goods__body {
+				&:before {
+					background-color: $color_d91667;
+				}
 			}
 
 			.goods__weight {
@@ -202,6 +214,13 @@
 		@include backgroundImage('../images/cat.png', left bottom, auto);
 		transition: $transition;
 		cursor: pointer;
+
+		&:before {
+			@include before(-2px, -4px);
+			width: 5px;
+			height: 2px;
+			background-color: $color_1698d9;
+		}
 	}
 
 	&__title {
