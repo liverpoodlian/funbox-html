@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: { main: './src/index.js' },
@@ -24,7 +25,14 @@ module.exports = {
         use:  [  
           'style-loader', 
           MiniCssExtractPlugin.loader, 
-          'css-loader', 
+          'css-loader',
+          {
+            loader: 'clean-css-loader',
+            options: {
+              compatibility: "ie9",
+              level: 2
+            }
+          }, 
           {
             loader: 'postcss-loader',
             options: {
@@ -65,6 +73,12 @@ module.exports = {
           },
         ],
       }
+    ]
+  },
+
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin()
     ]
   },
 
