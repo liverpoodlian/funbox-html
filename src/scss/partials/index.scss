@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	@include backgroundImage('../images/background.png', center, cover, repeat);
+	@include backgroundImage('/images/background.png', center, cover, repeat);
 	min-height: 100vh;
 }
 
@@ -211,7 +211,7 @@
 		border-top: none;
 		border-bottom-left-radius: 8px;
 		border-bottom-right-radius: 8px;
-		@include backgroundImage('../images/cat.png', left bottom, auto);
+		@include backgroundImage('/images/cat.png', left bottom, auto);
 		transition: $transition;
 		cursor: pointer;
 
