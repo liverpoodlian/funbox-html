@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	@include backgroundImage('../images/background.png', center, cover, repeat);
+	@include backgroundImage('/images/background.png', center, cover, repeat);
 	min-height: 100vh;
 }
 
@@ -71,7 +71,13 @@
 					background-color: rgba($color_f2f2f2, .5);
 				}
 			}
-
+      
+			.goods__body {
+				&:before {
+					background-color: $color_b3b3b3;
+				}
+			}
+      
 			.goods__weight {
 				background-color: $color_b3b3b3;
 			}
@@ -116,6 +122,12 @@
 				border-color: $color_d91667;
 			}
 
+			.goods__body {
+				&:before {
+					background-color: $color_d91667;
+				}
+			}
+      
 			.goods__weight {
 				background-color: $color_d91667;
 			}
@@ -163,10 +175,11 @@
 	}
 
 	&__header {
-		height: 38px;
+		height: 30px;
+		padding-bottom: 8px;
 		margin-left: 42px;
 		display: flex;
-		align-items: center;
+		align-items: flex-end;
 		@include fontStyle($trebuchet_font, 16px, 16px);
 		color: $color_666;
 		border: 5px solid $color_1698d9;
@@ -191,16 +204,23 @@
 		padding-top: 4px;
 		background-color: $color_fff;
 		z-index: 2;
-		padding-left: 42px;
+		padding-left: 37px;
 		padding-right: 20px;
 		height: 438px;
 		border: 5px solid $color_1698d9;
 		border-top: none;
 		border-bottom-left-radius: 8px;
 		border-bottom-right-radius: 8px;
-		@include backgroundImage('../images/cat.png', left bottom, auto);
+		@include backgroundImage('/images/cat.png', left bottom, auto);
 		transition: $transition;
 		cursor: pointer;
+
+		&:before {
+			@include before(-2px, -4px);
+			width: 5px;
+			height: 2px;
+			background-color: $color_1698d9;
+		}
 	}
 
 	&__title {
